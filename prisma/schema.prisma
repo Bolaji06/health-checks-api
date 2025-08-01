@@ -13,3 +13,38 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum HttpMethod {
+  GET
+  POST
+  PUT
+  DELETE
+  PATCH
+}
+
+model ApiEndpoint {
+  id          String         @id @default(uuid())
+  name        String
+  url         String
+  method      HttpMethod     @default(GET)
+  headers     Json?
+  body        Json?
+  interval    Int            @default(10) // in minutes
+  isActive    Boolean        @default(true)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  healthLogs  ApiHealthLog[]
+}
+
+model ApiHealthLog {
+  id            String       @id @default(uuid())
+  endpointId    String
+  statusCode    Int?
+  responseTime  Int?         // in ms
+  errorType     String?
+  errorMessage  String?
+  timestamp     DateTime     @default(now())
+
+  endpoint      ApiEndpoint  @relation(fields: [endpointId], references: [id])
+}
