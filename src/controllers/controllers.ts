@@ -49,7 +49,7 @@ export async function deleteEndpointById(req: Request, res: Response) {
   res.status(200).json(deletedEndpoint);
 }
 
-export async function getEndpointLogs(res: Response, req: Request) {
+export async function getEndpointLogs(req: Request, res: Response) {
   const id = req.params.id;
 
   const logs = await service.getEndpointLogs(id);

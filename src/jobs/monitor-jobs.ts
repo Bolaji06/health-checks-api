@@ -37,7 +37,7 @@ async function monitorSingleEndpoint(endpointId: string) {
     method: endpoint.method.toLowerCase() as any,
     headers: {
       Authorization:
-        "Bearer 1067|l3NQvxG23h4KdG5h3RWggAjFMo7B8omek5O724t6536dbe87",
+        "Bearer 1088|lG5Cf2hVutbbYwX82gVidHkAjPK5LUM7ziehlHfN17036b30",
       ...(endpoint.headers && typeof endpoint.headers === "object"
         ? (endpoint.headers as Record<string, string>)
         : {}),
