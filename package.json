@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "npx prisma generate && tsc",
     "start": "node dist/app.js",
     "dev": "nodemon src/app.ts",
     "clean": "rm -rf dist",
