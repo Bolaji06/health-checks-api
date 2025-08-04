@@ -14,4 +14,8 @@
   
 # Created cron jobs to ping the endpoints ✔️
 
+# Implementation of how to determine which endpoint is healthy or not Category (Error | Healthy)
+
+# Solve the issue of empty array of the health logs
+
 # Solve the issue of authenticated endpoints

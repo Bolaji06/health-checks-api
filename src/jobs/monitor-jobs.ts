@@ -52,13 +52,15 @@ async function monitorSingleEndpoint(endpointId: string) {
     const response = await axios(config);
     const responseTime = Date.now() - start;
 
-    await prisma.apiHealthLog.create({
+   const logEntry = await prisma.apiHealthLog.create({
       data: {
         endpointId: endpoint.id,
         statusCode: response.status,
         responseTime,
       },
     });
+
+    console.log(`💾 Log saved to database:`, logEntry.id); 
 
     console.log(
       `[✅] ${endpoint.name} — ${response.status} in ${responseTime}ms`

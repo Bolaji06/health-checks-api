@@ -46,3 +46,9 @@ export function getEndpointLogs(id: string) {
   });
   return logs;
 }
+
+export function getAllLogs(){
+  const logs = prisma.apiHealthLog.findMany();
+  //console.log(logs)
+  return logs
+}
